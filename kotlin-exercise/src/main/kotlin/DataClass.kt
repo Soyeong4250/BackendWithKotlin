@@ -20,13 +20,19 @@ data class Person (val name: String, val age: Int) {
 
 fun main() {
     val person1 = Person(name = "tony", age = 12)
-    val person2 = Person(name = "tony", age = 12)
+//    val person2 = Person(name = "tony", age = 12)
 
-    println(person1 == person2)  // 일반 class일 경우 false, data class일 경우 true
+    /*println(person1 == person2)  // 일반 class일 경우 false, data class일 경우 true
 
     val hashSet = hashSetOf(person1)
     println(hashSet.contains(person2))  // hashCode가 주석일 경우에는 false, 주석이 아닐 경우에는 true
 
-    println(person1.toString())  // 일반 class일 경우 Person@5451c3a8, data class일 경우 Person(name=tony, age=12)
+    println(person1.toString())  // 일반 class일 경우 Person@5451c3a8, data class일 경우 Person(name=tony, age=12)*/
 
+    val person2 = person1.copy(name="strange")
+    println(person2)
+
+    println("이름=${person1.component1()}, 나이=${person1.component2()}")   // 프로퍼티 순서대로 맵핑
+    val(name, age) = person1
+    println("이름=${name}, 나이=${age}")
 }
