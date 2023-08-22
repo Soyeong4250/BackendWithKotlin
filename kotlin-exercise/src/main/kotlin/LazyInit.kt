@@ -1,7 +1,7 @@
 class HelloBot {
 
     // var greating : String? = null
-    val greating: String by lazy {  // 호출된 최초 1회만 수행
+    val greating: String by lazy(LazyThreadSafetyMode.PUBLICATION) {  // 멀티스레드 환경이어도 동기화가 필요없음
         println("초기화 로직 수행")
         getHello()
     }  // 변수를 사용하는 시점에 by lazy로 선언한 내부 코드 동작
