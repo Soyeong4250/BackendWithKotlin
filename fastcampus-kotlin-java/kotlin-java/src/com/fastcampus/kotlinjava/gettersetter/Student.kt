@@ -4,7 +4,7 @@ import java.time.LocalDate
 
 class Student {
 
-//    @JvmField
+    @JvmField
     var name: String? = null
 
     var birthDate: LocalDate? = null
@@ -13,7 +13,6 @@ class Student {
 
     var grade: String? = null
         private set
-
 
     fun changeGrade(grade:String) {
         this.grade = grade
