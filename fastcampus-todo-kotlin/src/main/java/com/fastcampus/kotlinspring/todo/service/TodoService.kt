@@ -1,8 +1,11 @@
 package com.fastcampus.kotlinspring.todo.service
 
 import com.fastcampus.kotlinspring.todo.api.model.TodoRequest
+import com.fastcampus.kotlinspring.todo.domain.Todo
+import com.fastcampus.kotlinspring.todo.domain.TodoRepository
 import org.springframework.data.domain.Sort
 import org.springframework.data.domain.Sort.*
+import org.springframework.data.repository.findByIdOrNull
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -16,7 +19,7 @@ class TodoService(
 
     @Transactional(readOnly = true)
     fun findAll() : List<Todo> =
-        todoRepository.findAll(Direction.DESC, "id")
+        todoRepository.findAll(by(Direction.DESC, "id"))
 
     @Transactional(readOnly = true)
     fun findById(id: Long) : Todo =
