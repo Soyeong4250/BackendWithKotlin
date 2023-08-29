@@ -35,6 +35,9 @@ dependencies {
 
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	// 코틀린 전용 mokito 기반 테스트 의존성
+	testImplementation("com.ninja-squad:springmockk:3.1.1")
 }
 
 // 코틀린 컴파일 옵션
